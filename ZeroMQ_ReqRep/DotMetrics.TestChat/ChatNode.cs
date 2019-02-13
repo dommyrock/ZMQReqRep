@@ -192,7 +192,7 @@ namespace DotMetrics.TestChat
                     this.activeSocket.Send(new ZFrame("$$$$ServerREADY$$$$"));
                 }
 
-                Thread.Sleep(10);
+                Thread.Sleep(10); //added for synchronization , but it's not best solution
             }
         }
 
