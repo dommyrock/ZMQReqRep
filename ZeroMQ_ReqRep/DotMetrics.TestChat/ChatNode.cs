@@ -155,7 +155,7 @@ namespace DotMetrics.TestChat
                     string msgJson = frame.ReadString();
 
                     List<Message> primljenePoruke = new List<Message>();
-                    JsonConvert.PopulateObject(msgJson, primljenePoruke);//convert to json string
+                    JsonConvert.PopulateObject(msgJson, primljenePoruke);
                     _receiveList.AddRange(primljenePoruke);
                     _output.AddRange(_receiveList);
                     _receiveList.Clear();
