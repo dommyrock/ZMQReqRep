@@ -3,7 +3,7 @@ Used documentation: http://zguide.zeromq.org/
 
 This is basic client- server / REQ -REP chat app made in .NET windows forms  using ZMQ library . 
 1) We bind server/REP zsocket (localhost + any(free) port) by pressing connect btn
-2) We connect client /REQ zsocket to server /REP socket 
+2) We connect client /REQ zsocket to server
 2.1)client sends $$$$ClientREADY$$$$ frame to zsocket
 2.2)Server receives $$$$ClientREADY$$$$ frame on zsocket and sends $$$$ServerREADY$$$$ frame
 
