@@ -48,6 +48,8 @@ namespace DotMetrics.TestChat
 
         private Thread workerThread;
 
+        private string ErrorMessage;
+
         public ChatNode(bool isServer)
         {
             this.IsServer = isServer;
@@ -73,9 +75,9 @@ namespace DotMetrics.TestChat
                     {
                         this.activeSocket.Bind(this.Endpoint);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        return false;
+                        ErrorMessage = ex.Message;
                     }
                     this.IsStarted = true;
                     this.workerThread = new Thread(RunExchange);
@@ -91,7 +93,7 @@ namespace DotMetrics.TestChat
                     }
                     catch (Exception ex)
                     {
-                        return false;
+                        ErrorMessage = ex.Message;
                     }
                     this.IsStarted = true;
                     this.workerThread = new Thread(RunExchange);
