@@ -151,18 +151,18 @@ namespace DotMetrics.TestChat
                 ZFrame frame;
                 if (!this.IsServer)
                 {
-                    this.activeSocket.Send(new ZFrame("$$$$ClientREADY$$$$"));
+                    this.activeSocket.Send(new ZFrame("$$$$ClientREADY$$$$")); //1. st frame when client connects
 
                     frame = this.activeSocket.ReceiveFrame();
                     string msgJson = frame.ReadString();
 
                     List<Message> primljenePoruke = new List<Message>();
-                    JsonConvert.PopulateObject(msgJson, primljenePoruke);
+                    JsonConvert.PopulateObject(msgJson, primljenePoruke); //populates Message obj from frame string
                     _receiveList.AddRange(primljenePoruke);
                     _output.AddRange(_receiveList);
                     _receiveList.Clear();
 
-                    string toSendJson = JsonConvert.SerializeObject(this._sendList);
+                    string toSendJson = JsonConvert.SerializeObject(this._sendList);//serilize Message obj to string
                     // skini sve poruke iz liste
                     this._sendList.Clear();
 
@@ -174,7 +174,7 @@ namespace DotMetrics.TestChat
                 {
                     frame = this.activeSocket.ReceiveFrame(); // READY
 
-                    string toSendJson = JsonConvert.SerializeObject(this._sendList);
+                    string toSendJson = JsonConvert.SerializeObject(this._sendList);//serilize Message obj to string
                     // skini sve poruke iz liste
                     this._sendList.Clear();
 
@@ -185,7 +185,7 @@ namespace DotMetrics.TestChat
 
                     // skini sve poruke iz liste
                     List<Message> primljenePoruke = new List<Message>();
-                    JsonConvert.PopulateObject(msgJson, primljenePoruke);
+                    JsonConvert.PopulateObject(msgJson, primljenePoruke);//populates Message obj from frame string
                     _receiveList.AddRange(primljenePoruke);
                     _output.AddRange(_receiveList);
                     _receiveList.Clear();
