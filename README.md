@@ -1,4 +1,4 @@
-# ZeroMQTestApps
+# ZeroMQTestApps by Dominik Polzer
 Used documentation: http://zguide.zeromq.org/
 
 This is basic client- server / REQ -REP chat app made in .NET windows forms  using ZMQ library . 
